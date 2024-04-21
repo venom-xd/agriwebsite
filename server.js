@@ -2,11 +2,15 @@ const express = require('express');
 const path = require('path');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const bodyParser = require('body-parser');
-
+require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-const uri = "mongodb+srv://kumaraditya2925:46vpCh3hPbdcdwWg@cluster0.kzqwdjx.mongodb.net/?retryWrites=true&w=majority"; // Replace with your MongoDB connection string
+const uri = process.env.MONGODB_URI;
+
+
+
+
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
